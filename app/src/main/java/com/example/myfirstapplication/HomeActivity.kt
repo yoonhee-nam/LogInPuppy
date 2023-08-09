@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import java.util.Random
@@ -18,8 +19,6 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-
-
 
         val imageList = ArrayList<ImageItem>()
         imageList.add(ImageItem(R.drawable.puppy_3))
@@ -35,23 +34,16 @@ class HomeActivity : AppCompatActivity() {
         val homeImage = findViewById<ImageView>(R.id.imageView4)
         homeImage.setImageResource(randomImageResId)
 
-
-
-
-
-
-
         val idData = intent.getStringExtra("dataFromSignInActivity")
         val idText = findViewById<TextView>(R.id.idText)
         idText.setText(idData)
 
-        val btn = findViewById<Button>(R.id.btnClose)
-        btn.setOnClickListener {
+
+        val btn = findViewById<ConstraintLayout>(R.id.btn)
+            btn.setOnClickListener {
             finish()
         }
-
     }
-
 }
 
 data class ImageItem(val imageResId: Int)
